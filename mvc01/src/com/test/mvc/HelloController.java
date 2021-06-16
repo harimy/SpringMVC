@@ -18,7 +18,7 @@ public class HelloController implements Controller
 {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		// 액션 코드
 		
