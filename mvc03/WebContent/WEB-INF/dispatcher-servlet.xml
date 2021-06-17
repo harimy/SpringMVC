@@ -42,7 +42,7 @@
     <!-- MemberDAO -->
     <bean id="memberDAO" class="com.test.mvc.MemberDAO">
     	<property name="dataSource">
-    		<ref bean="remoteDataSource"/>
+    		<ref bean="localDataSource"/>
     	</property>
     </bean>
     
@@ -52,5 +52,12 @@
     		<ref bean="memberDAO"></ref>
     	</property>
     </bean>
+    
+    <!-- MemberInsertController -->
+	<bean name="/memberinsert.action" class="com.test.mvc.MemberInsertController">
+		<property name="dao">
+			<ref bean="memberDAO"></ref>
+		</property>
+	</bean>
 
 </beans>
