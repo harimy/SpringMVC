@@ -226,7 +226,7 @@ public class EmployeeDAO implements IEmployeeDAO
 				+ ", BASICPAY, EXTRAPAY)"
 				+ " VALUES( EMPLOYEESEQ.NEXTVAL, ?"
 				+ ", ?, CRYPTPACK.ENCRYPT(?, ?)"
-				+ ", TO_DATE('?', 'YYYY-MM-DD')"
+				+ ", TO_DATE(?, 'YYYY-MM-DD')"
 				+ ", ?"
 				+ ", ?"
 				+ ", ?, ?, ?"
@@ -284,7 +284,7 @@ public class EmployeeDAO implements IEmployeeDAO
 				+ ", TELEPHONE=?"
 				+ ", DEPARTMENTID=?, POSITIONID=?, REGIONID=?"
 				+ ", BASICPAY=?, EXTRAPAY=?"
-				+ ", SSN1='010101', SSN2=CRYPTPACK.ENCRYPT(?, ?)"
+				+ ", SSN1=?, SSN2=CRYPTPACK.ENCRYPT(?, ?)"
 				+ " WHERE EMPLOYEEID=?";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);

@@ -5,6 +5,7 @@
    	request.setCharacterEncoding("UTF-8");
    	String cp = request.getContextPath();
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +30,13 @@
 	
 	<!-- 콘텐츠 영역 -->
 	<div id="content">
-		<h1>[직원관리]</h1>
+		<h1>[ 직원 관리 ]</h1>
 		<hr />
 		
 		<div>
-			<form action="">
-				<input type="button" value="직원 추가" class="btn">
+			<form action="/employeeinsertform.action">
+				<input type="button" value="직원 추가" class="btn"
+				onclick="location.href='employeeinsertform.action'">
 			</form>
 		</div>
 		<br><br>

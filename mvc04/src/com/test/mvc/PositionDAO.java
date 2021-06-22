@@ -108,10 +108,14 @@ public class PositionDAO implements IPositionDAO
 		
 		Connection conn = dataSource.getConnection();
 		
-		String sql = "UPDATE POSITION SET POSITIONNAME=? WHERE POSITIONID=?";
+		String sql = "UPDATE POSITION"
+	            + " SET POSITIONNAME=?, MINBASICPAY=?"
+	            + " WHERE POSITIONID=?";
+
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, position.getPositionName());
-		pstmt.setInt(2, Integer.parseInt(position.getPositionId()));
+	    pstmt.setInt(2, position.getMinBasicPay());
+	    pstmt.setInt(3, Integer.parseInt(position.getPositionId()));
 		result = pstmt.executeUpdate();
 		
 		pstmt.close();
