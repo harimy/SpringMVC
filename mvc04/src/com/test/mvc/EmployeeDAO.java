@@ -300,8 +300,7 @@ public class EmployeeDAO implements IEmployeeDAO
 		pstmt.setString(10, employee.getSsn1());
 		pstmt.setString(11, employee.getSsn2());
 		pstmt.setString(12, employee.getSsn2());
-		pstmt.setInt(13, employee.getGrade());
-		pstmt.setInt(14, Integer.parseInt(employee.getEmployeeId()));
+		pstmt.setInt(13, Integer.parseInt(employee.getEmployeeId()));
 		
 		result = pstmt.executeUpdate();
 		
@@ -333,21 +332,15 @@ public class EmployeeDAO implements IEmployeeDAO
 		{
 			result.setEmployeeId(rs.getString("EMPLOYEEID"));
 			result.setName(rs.getString("NAME"));
-			result.setSsn(rs.getString("SSN"));
+			result.setSsn1(rs.getString("SSN1"));
 			result.setBirthday(rs.getString("BIRTHDAY"));
 			result.setLunar(rs.getInt("LUNAR"));
-			result.setLunarName(rs.getString("LUNARNAME"));
 			result.setTelephone(rs.getString("TELEPHONE"));
 			result.setDepartmentId(rs.getString("DEPARTMENTID"));
-			result.setDepartmentName(rs.getString("DEPARTMENTNAME"));
-			result.setPositionId(rs.getString("POSITIOID"));
-			result.setPositionName(rs.getString("POSITIONNAME"));
+			result.setPositionId(rs.getString("POSITIONID"));
 			result.setRegionId(rs.getString("REGIONID"));
-			result.setRegionName(rs.getString("REGIONNAME"));
 			result.setBasicPay(rs.getInt("BASICPAY"));
 			result.setExtraPay(rs.getInt("EXTRAPAY"));
-			result.setPay(rs.getInt("PAY"));
-			result.setGrade(rs.getInt("GRADE"));
 		}
 		
 		rs.close();

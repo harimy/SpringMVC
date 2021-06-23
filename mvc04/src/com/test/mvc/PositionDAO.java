@@ -97,6 +97,9 @@ public class PositionDAO implements IPositionDAO
 		pstmt.setInt(1, Integer.parseInt(positionId));
 		result = pstmt.executeUpdate();
 		
+		pstmt.close();
+		conn.close();
+		
 		return result;
 	}
 	

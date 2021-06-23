@@ -108,10 +108,8 @@
 <body>
 
 <!------------------------------------------------------------------
-  #14. EmployeeList.jsp
-  - 직원 리스트 출력 페이지.
-  - 관리자가 접근하는 직원 데이터 출력 페이지
-    (일반 직원이 접근하는 직원 데이터 출력 페이지는 EmpList.jsp 로 구성할 예정)
+  #23. EmployeeUpdateForm.jsp
+  - 직원 데이터 수정 폼 페이지.
 ------------------------------------------------------------------->
 
 <div>
@@ -121,39 +119,56 @@
 	</div>
 	
 	<div id="content">
-		<h1>[ 직원 추가 ]</h1>
+		<h1>[ 직원 수정 ]</h1>
 		<hr />
 		
-		<form action="employeeinsert.action" method="post" id="employeeForm">
+		<form action="employeeupdate.action" method="post" id="employeeForm">
 			<table>
+			<tr>
+				<th>사원번호
+					<td>
+						<input type="text" id="employeeId" name="employeeId"
+					 	value="${employee.employeeId }" readonly="readonly" />
+					 </td>
+				</th>
+			</tr>
+			
 			<tr>
 				<th>이름</th>
 				<td>
-					<input type="text" name="name" placeholder="이름" id="name" />	
+					<input type="text" name="name" placeholder="이름" id="name" 
+					value="${employee.name }"/>	
 				</td>
 			</tr>
 			<tr>
 				<th>주민번호</th>
 				<td>
-					<input type="text" id="ssn1" name="ssn1" style="width: 100px;" placeholder="앞 6자리" />
+					<input type="text" id="ssn1" name="ssn1" style="width: 100px;"
+					value="${employee.ssn1 }"/>
 					- <input type="password" id="ssn2" name="ssn2" style="width: 100px;" placeholder="뒷 7자리" />
 				</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input type="text" id="birthday" name="birthday" placeholder="생년월일" /></td>
+				<td><input type="text" id="birthday" name="birthday"
+				value="${employee.birthday }" /></td>
 			</tr>
 			<tr>
 				<th>양/음력</th>
-				<td><input type="radio" value="0" name="lunar" id="lunar0" checked="checked"/>
+				<td><input type="radio" value="0" name="lunar" id="lunar0"
+				${employee.lunar==0 ? "checked=\"checked\"" : "" }/>
 				<label for="lunar0">양력</label>
-				<input type="radio" value="1" name="lunar" id="lunar1"/>
+				<input type="radio" value="1" name="lunar" id="lunar1"
+				${employee.lunar==1 ? "checked=\"checked\"" : "" }/>
 				<label for="lunar1">음력</label>
 				</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="tel" id="telephone" name="telephone" placeholder="전화번호" /></td>
+				<td>
+					<input type="tel" id="telephone" name="telephone" placeholder="전화번호"
+					value="${employee.telephone }"/>
+				</td>
 			</tr>
 			<tr>
                <th>지역</th>
@@ -163,9 +178,12 @@
                      	<option value="1">서울</option>
                      	<option value="2">경기</option>
                      	<option value="3">인천</option>
+                     	<option value="4">제주</option>
                     	-->
                   <c:forEach var="region" items="${regionList}">
-                  		<option value="${region.regionId}">${region.regionName}</option>
+                  		<option value="${region.regionId}"
+                  		${employee.regionId==region.regionId ? 
+                  		"selected=\"selected\"" : "" }>${region.regionName}</option>
                   </c:forEach>
                   </select>
                </td>
@@ -179,7 +197,9 @@
                      	<option value="2">영업부</option>
                      	-->
                      	<c:forEach var="department" items="${departmentList}">
-                     		<option value="${department.departmentId}">${department.departmentName}</option>
+                     		<option value="${department.departmentId}"
+                     		${employee.departmentId==department.departmentId ? 
+                     		"selected=\"selected\"" : "" }>${department.departmentName}</option>
                      	</c:forEach>
                   </select>
                </td>
@@ -194,7 +214,9 @@
                      	<option value="3">책임</option>
                      	-->
                      	<c:forEach var="position" items="${positionList}">
-                     		<option value="${position.positionId}">${position.positionName}</option>
+                     		<option value="${position.positionId}"
+                     		${employee.positionId==position.positionId ? "selected=\"selected\"" : "" 
+                     		}>${position.positionName}</option>
                      	</c:forEach>
                   </select>
                </td>
@@ -202,19 +224,23 @@
             <tr>
             	<th>기본급</th>
             	<td>
-                  <input type="text" id="basicPay" name="basicPay">
+                  <input type="text" id="basicPay" name="basicPay"
+                  value="${employee.basicPay }">
                   (최소 기본급 <span id="minBasicPay"
                   style="color:red; font-weight: bold;">0</span>원)
                	</td>
             </tr>
 			<tr>
 				<th>수당</th>
-				<td><input type="text" id="extraPay" name="extraPay" /></td>
+				<td>
+					<input type="text" id="extraPay" name="extraPay"
+					value="${employee.extraPay }"/>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><br /><br />
 				
-               		<button type="button" style="width: 40%" class="btn" id="submitBtn">직원 추가</button>
+               		<button type="button" style="width: 40%" class="btn" id="submitBtn">직원 수정</button>
                		<button type="button" style="width: 40%" class="btn" id="listBtn"
                		onclick="location.href='employeelist.action'">직원 리스트</button>
                		<br><br>

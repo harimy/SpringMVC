@@ -116,7 +116,7 @@ public class DepartmentDAO implements IDepartmentDAO
 				+ " SET DEPARTMENTNAME=?"
 				+ " WHERE DEPARTMENTID=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, department.getDepartmentId());
+		pstmt.setString(1, department.getDepartmentName());
 		pstmt.setInt(2, Integer.parseInt(department.getDepartmentId()));
 		result = pstmt.executeUpdate();
 		

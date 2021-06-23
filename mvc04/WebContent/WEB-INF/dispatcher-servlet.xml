@@ -71,5 +71,23 @@
    	<bean name="/employeeinsert.action" class="com.test.mvc.EmployeeInsertController">
    		<property name="dao" ref="employeeDAO"></property>
    	</bean>
+   	
+   	<bean name="/employeeupdateform.action" class="com.test.mvc.EmployeeUpdateFormController">
+   		<!-- <property name="dao" ref='employeeDAO'></property> -->
+   		<property name="employeeDAO" ref='employeeDAO'></property>
+   		<property name="regionDAO" ref='regionDAO'></property>
+   		<property name="departmentDAO" ref='departmentDAO'></property>
+   		<property name="positionDAO" ref='positionDAO'></property>
+   		<!-- name 값은 UpdateController 에 있는 변수들을 의미,
+   		     ref 값은 위에서 bean 으로 구성한 것들을 의미 -->
+   	</bean>
+
+	<bean name="/employeeupdate.action" class="com.test.mvc.EmployeeUpdateController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	<bean name="/employeedelete.action" class="com.test.mvc.EmployeeDeleteController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
 
 </beans>
