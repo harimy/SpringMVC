@@ -125,12 +125,11 @@
 		<form action="employeeupdate.action" method="post" id="employeeForm">
 			<table>
 			<tr>
-				<th>사원번호
-					<td>
-						<input type="text" id="employeeId" name="employeeId"
-					 	value="${employee.employeeId }" readonly="readonly" />
-					 </td>
-				</th>
+				<th>사원번호</th>
+				<td>
+					<input type="text" id="employeeId" name="employeeId"
+				 	value="${employee.employeeId }" readonly="readonly" />
+				</td>
 			</tr>
 			
 			<tr>

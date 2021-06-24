@@ -1,8 +1,8 @@
 /*=====================================================================================
-   #26. EmployeeDeleteController.java
-        (employeedelete.action)
+   #59. PositionDeleteController.java
+        (positiondelete.action)
    - 사용자 정의 컨트롤러 클래스
-   - 직원 데이터 삭제 액션 수행 후 employeelist.action 다시 요청할 수 있도록 안내
+   - 직위 데이터 삭제 액션 수행 후 positionlist.action 다시 요청할 수 있도록 안내
    - DAO 객체에 대한 의존성 주입(DI)을 위한 준비
      → 인터페이스 형태의 자료형을 속성으로 구성
      → setter 메소드 구성
@@ -20,11 +20,11 @@ import org.springframework.web.servlet.mvc.Controller;
 // ※ Spring 의 `Controller` 인터페이스를 구현하는 방법을 통해
 //   사용자 정의 컨트롤러 클래스를 구현한다.
 
-public class EmployeeDeleteController implements Controller
+public class PositionDeleteController implements Controller
 {
-	private IEmployeeDAO dao;
-
-	public void setDao(IEmployeeDAO dao)
+	private IPositionDAO dao;
+	
+	public void setDao(IPositionDAO dao)
 	{
 		this.dao = dao;
 	}
@@ -52,19 +52,30 @@ public class EmployeeDeleteController implements Controller
 		
 		// ---------------------------------------------------------------- 세션 처리과정 추가
 		
+		String positionId = request.getParameter("positionId");
 		
-		// 데이터 수신(→ EmployeeList.jsp 로 부터 employeeId 수신)
-		String employeeId = request.getParameter("employeeId");
+		Position position = new Position();
 		
-		try
+		position = dao.searchId(positionId);
+		
+		if(position.getDelCheck() > 0)
 		{
-			dao.remove(employeeId);
-			
-			mav.setViewName("redirect:employeelist.action");
-			
-		} catch (Exception e)
+			// 참조되고 있는 경우 삭제할 수 없음
+			mav.setViewName("redirect:positionlist.action");
+		}
+		else 
 		{
-			System.out.println(e.toString());
+			try
+			{
+				dao.remove(positionId);
+				
+				mav.setViewName("redirect:positionlist.action");
+				
+			} catch (Exception e)
+			{
+				System.out.println(e.toString());
+			}
+			
 		}
 		
 		return mav;

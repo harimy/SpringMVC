@@ -346,56 +346,80 @@ http://localhost:8090/mvc02/memberlist.action
 
   #32. EmpListController.java
 
-  #33. DepartmentList.jsp	→ 부서 리스트 출력 페이지.
+  [지역]
 
-  #34. DepartmentListController.java
+  #33. RegionList.jsp		→ 지역 리스트 출력 페이지.
 
+  #34. RegionListController.java
 
+  #35. RegionInsertForm.jsp 	→ 지역 데이터 입력 폼 페이지.
 
-  #18. DepartmentInsertForm.jsp → 부서 데이터 입력 폼 페이지.
+  #36. RegionInsertFormController.java
 
-  #19. DepartmentUpdateForm.jsp → 부서 데이터 수정 폼 페이지.
+  #37. RegionInsertController.java
 
+  #38. RegionUpdateForm.jsp 	→ 지역 데이터 수정 폼 페이지.
 
-  #20. RegionList.jsp		→ 지역 리스트 출력 페이지.
+  #39. RegionUpdateFormController.java
 
-  #21. RegionInsertForm.jsp 	→ 지역 데이터 입력 폼 페이지.
+  #40. RegionUpdateController.java
 
-  #22. RegionUpdateForm.jsp 	→ 지역 데이터 수정 폼 페이지.
+  #41. RegionDeleteController.java
 
+  [부서]
 
-  #23. RegionList.jsp		→ 직위 리스트 출력 페이지.
+  #42. DepartmentList.jsp	→ 부서 리스트 출력 페이지.
 
-  #24. RegionInsertForm.jsp 	→ 직위 데이터 입력 폼 페이지.
+  #43. DepartmentListController.java
 
-  #25. RegionUpdateForm.jsp 	→ 직위 데이터 수정 폼 페이지.
-  
+  #44. DepartmentInsertForm.jsp → 부서 데이터 입력 폼 페이지.
 
-  #38. DepartmentInsertFormController.java
-  #39. DepartmentInsertController.java
-  #40. DepartmentUpdateFormController.java
-  #41. DepartmentUpdateController.java
-  #42. DepartmentDeleteController.java
+  #45. DepartmentInsertFormController.java
 
-  #43. RegionListController.java
-  #44. RegionInsertFormController.java
-  #45. RegionInsertController.java
-  #46. RegionUpdateFormController.java
-  #47. RegionUpdateController.java
-  #48. RegionDeleteController.java
+  #46. DepartmentInsertController.java
 
-  #49. PositionListController.java
-  #50. PositionInsertFormController.java
-  #51. PositionInsertController.java
-  #52. PositionUpdateFormController.java
-  #53. PositionUpdateController.java
-  #54. PositionDeleteController.java
+  #47. DepartmentUpdateForm.jsp → 부서 데이터 수정 폼 페이지.
+
+  #48. DepartmentUpdateFormController.java
+
+  #49. DepartmentUpdateController.java
+
+  #50. DepartmentDeleteController.java
+
+  [직위]
+
+  #51. PositionList.jsp		→ 직위 리스트 출력 페이지.
+
+  #52. PositionListController.java
+
+  #53. PostionInsertForm.jsp 	→ 직위 데이터 입력 폼 페이지.
+
+  #54. PositionInsertFormController.java
+
+  #55. PositionInsertController.java
+
+  #56. PositionUpdateForm.jsp 	→ 직위 데이터 수정 폼 페이지.
+
+  #57. PositionUpdateFormController.java
+
+  #58. PositionUpdateController.java
+
+  #59. PositionDeleteController.java
+
+  #60. EmpMenu.jsp
+
+  #61. RgnList.jsp		→ 일반 직원용 지역 리스트 출력 페이지
+
+  #62. RgnListController.java
+
+  #63. DeptList.jsp		→ 일반 직원용 부서 리스트 출력 페이지
  
+  #64. DeptListController.java
 
+  #65. PstList.jsp		→ 일반 직원용 직위 리스트 출력 페이지
 
-
-
-
+  #66. PstListController.java
+ 
 
 ○ 사용자의 최초 요청 주소
 http://localhost:8090/mvc04/employeelist.action

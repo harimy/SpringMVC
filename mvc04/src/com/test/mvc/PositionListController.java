@@ -1,14 +1,15 @@
-/*=====================================================================================
-   #26. EmployeeDeleteController.java
-        (employeedelete.action)
+/*============================================================
+   #52. PositionListController.java
    - 사용자 정의 컨트롤러 클래스
-   - 직원 데이터 삭제 액션 수행 후 employeelist.action 다시 요청할 수 있도록 안내
+   - 직위 리스트 페이지 요청에 대한 액션 처리(관리자 전용)
    - DAO 객체에 대한 의존성 주입(DI)을 위한 준비
      → 인터페이스 형태의 자료형을 속성으로 구성
      → setter 메소드 구성
-=====================================================================================*/
+============================================================*/
 
 package com.test.mvc;
+
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,11 +21,11 @@ import org.springframework.web.servlet.mvc.Controller;
 // ※ Spring 의 `Controller` 인터페이스를 구현하는 방법을 통해
 //   사용자 정의 컨트롤러 클래스를 구현한다.
 
-public class EmployeeDeleteController implements Controller
+public class PositionListController implements Controller
 {
-	private IEmployeeDAO dao;
+	private IPositionDAO dao;
 
-	public void setDao(IEmployeeDAO dao)
+	public void setDao(IPositionDAO dao)
 	{
 		this.dao = dao;
 	}
@@ -36,7 +37,7 @@ public class EmployeeDeleteController implements Controller
 		
 		ModelAndView mav = new ModelAndView();
 		
-		// 세션 처리과정 추가 ----------------------------------------------------------------
+		// 세션 처리 추가 ---------------------------------------------------
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("name")==null)
@@ -49,23 +50,22 @@ public class EmployeeDeleteController implements Controller
 			mav.setViewName("redirect:logout.action");
 			return mav;
 		}
+		// --------------------------------------------------- 세션 처리 추가
 		
-		// ---------------------------------------------------------------- 세션 처리과정 추가
-		
-		
-		// 데이터 수신(→ EmployeeList.jsp 로 부터 employeeId 수신)
-		String employeeId = request.getParameter("employeeId");
+		ArrayList<Position> positionList = new ArrayList<Position>();
 		
 		try
 		{
-			dao.remove(employeeId);
+			positionList = dao.list();
 			
-			mav.setViewName("redirect:employeelist.action");
+			mav.addObject("positionList", positionList);
+			
+			mav.setViewName("/WEB-INF/views/PositionList.jsp");
 			
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());
-		}
+		}	
 		
 		return mav;
 		

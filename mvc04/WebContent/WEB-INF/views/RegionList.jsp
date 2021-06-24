@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	request.setCharacterEncoding("UTF-8");
-	String cp = request.getContextPath();
+   	request.setCharacterEncoding("UTF-8");
+   	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DepartmentList.jsp</title>
+<title>RegionList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/main.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -18,14 +17,14 @@
 	{
 		$(".updateBtn").click(function()
 		{
-			$(location).attr("href", "departmentupdateform.action?departmentId=" + $(this).val());
+			$(location).attr("href", "regionupdateform.action?regionId=" + $(this).val());
 		});
 		
 		$(".deleteBtn").click(function()
 		{
 			if(confirm("현재 선택한 데이터를 정말 삭제하시겠습니까?"))
 			{
-				$(location).attr("href", "departmentdelete.action?departmentId=" + $(this).val());
+				$(location).attr("href", "regiondelete.action?regionId=" + $(this).val());
 			}
 		});
 		
@@ -36,8 +35,8 @@
 <body>
 
 <!------------------------------------------------------------------
-  #42. DepartmentList.jsp
-  - 관리자용 부서 리스트 출력 페이지
+  #33. RegionList.jsp
+  - 관리자용 지역 리스트 출력 페이지
 ------------------------------------------------------------------->
 
 <div>
@@ -48,44 +47,44 @@
 	
 	<!-- 콘텐츠 영역 -->
 	<div id="content">
-		<h1>[ 부서 리스트(관리자 전용) ]</h1>
+		<h1>[ 지역 리스트(관리자 전용) ]</h1>
 		<hr />
 		
 		<div>
-			<form action="/departmentinsertform.action">
-				<input type="button" value="부서 추가" class="btn"
-				onclick="location.href='departmentinsertform.action'">
+			<form action="/regioninsertform.action">
+				<input type="button" value="지역 추가" class="btn"
+				onclick="location.href='regioninsertform.action'">
 			</form>
 		</div>
 		<br><br>
 		
 		<!-- EMPLOYEEID NAME DEPARTMENTNAME POSITIONNAME REGIONNAME GRADE  -->
 		
-		<table id="departments" class="table">
+		<table id="regions" class="table">
 			<tr>
 			 	<!-- 항목 3EA -->
-				<th>부서 번호</th>
-				<th>부서 이름</th>
-				<th>부서 인원</th>
+				<th>지역 번호</th>
+				<th>지역 이름</th>
+				<th>지역 인원</th>
 				<th>수정</th>
 				<th>삭제</th>
 			</tr>
 			<!-- 
 			<tr>
 				<td>1</td>
-				<td>개발부</td>
+				<td>서울</td>
 				<td>3</td>
 			</tr>
 			-->
-			<c:forEach var="department" items="${departmentList}">
+			<c:forEach var="region" items="${regionList}">
 				<tr>
-					<td>${department.departmentId }</td>
-					<td>${department.departmentName }</td>
-					<td>${department.delCheck }</td>
+					<td>${region.regionId }</td>
+					<td>${region.regionName }</td>
+					<td>${region.delCheck }</td>
 					<td><button type="button" class="btn updateBtn"
-					value="${department.departmentId }">수정</button></td>
+					value="${region.regionId }">수정</button></td>
 					<td><button type="button" class="btn deleteBtn"
-					value="${department.departmentId }">삭제</button></td>
+					value="${region.regionId }">삭제</button></td>
 				</tr>
 			</c:forEach>
 		</table>
