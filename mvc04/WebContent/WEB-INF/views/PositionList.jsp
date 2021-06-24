@@ -88,9 +88,10 @@
 					</td>
 					<td>${position.delCheck }</td>
 					<td><button type="button" class="btn updateBtn"
-					value="${position.positionId }">수정</button></td>
+					 value="${position.positionId }">수정</button></td>
 					<td><button type="button" class="btn deleteBtn"
-					value="${position.positionId }">삭제</button></td>
+					 value="${position.positionId }"
+					 ${position.delCheck==0? "" : "disabled='disabled'" }>삭제</button></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -83,9 +83,10 @@
 					<td>${department.departmentName }</td>
 					<td>${department.delCheck }</td>
 					<td><button type="button" class="btn updateBtn"
-					value="${department.departmentId }">수정</button></td>
+					 value="${department.departmentId }">수정</button></td>
 					<td><button type="button" class="btn deleteBtn"
-					value="${department.departmentId }">삭제</button></td>
+					 value="${department.departmentId }"
+					 ${department.delCheck==0? "" : "disabled='disabled'" }>삭제</button></td>
 				</tr>
 			</c:forEach>
 		</table>
