@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.mybatis.IMemberDAO"><!-- implements IMemberDAO -->
+	<!-- 내가 MemberDAO인데.. I멤디에 있는 걸 다 만들어놔야.. 멤디로 활동 가능.. -->
+	
+	<!-- resultSet이 아니라 resultType 이기 때문에 MemberDTO -->
+	<!-- MemberDTO 가 모이면 resultSet -->
+	<select id="list" resultType="com.test.mybatis.MemberDTO">
+		SELECT MID, NAME, TELEPHONE
+		FROM TBL_MEMBERLIST
+		ORDER BY MID
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		SELECT COUNT(*) AS COUNT
+		FROM TBL_MEMBERLIST
+	</select>
+	
+	<insert id="add">
+		INSERT INTO TBL_MEMBERLIST(MID, NAME, TELEPHONE)
+		VALUES(MEMBERLISTSEQ.NEXTVAL, '선혜연', '010-2222-2222')
+	</insert>
+	
+	<delete id="remove">
+		DELETE
+		FROM TBL_MEMBERLIST
+		WHERE MID = 1
+	</delete>
+	
+</mapper>
