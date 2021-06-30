@@ -1,7 +1,7 @@
-/*=============================
-   MemberDTO.java
-   - 데이터 저장 및 전송 전용 객체
-=============================*/
+/*=====================
+   IMemberDAO.java
+   - 인터페이스
+=====================*/
 
 package com.test.mybatis;
 
@@ -13,5 +13,5 @@ public interface IMemberDAO
 	public int count();
 	public ArrayList<MemberDTO> list();
 	public int remove(MemberDTO m);
-	
+	public int modify(MemberDTO m);
 }

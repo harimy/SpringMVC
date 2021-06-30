@@ -9,9 +9,9 @@
 	<!-- resultSet이 아니라 resultType 이기 때문에 MemberDTO -->
 	<!-- MemberDTO 가 모이면 resultSet -->
 	<select id="list" resultType="com.test.mybatis.MemberDTO">
-		SELECT MID, NAME, TELEPHONE
-		FROM TBL_MEMBERLIST
-		ORDER BY MID
+      SELECT MID, NAME, TELEPHONE
+      FROM TBL_MEMBERLIST
+      ORDER BY MID
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">
@@ -19,15 +19,22 @@
 		FROM TBL_MEMBERLIST
 	</select>
 	
+	<!-- MemberDTO 를 넘겨받는 메소드 -->
 	<insert id="add">
 		INSERT INTO TBL_MEMBERLIST(MID, NAME, TELEPHONE)
-		VALUES(MEMBERLISTSEQ.NEXTVAL, '선혜연', '010-2222-2222')
+		VALUES(MEMBERLISTSEQ.NEXTVAL, #{name}, #{telephone})
 	</insert>
 	
 	<delete id="remove">
 		DELETE
 		FROM TBL_MEMBERLIST
-		WHERE MID = 1
+		WHERE MID = #{mid}
 	</delete>
+	
+	<update id="modify">
+		UPDATE TBL_MEMBERLIST
+		SET NAME = #{name}, TELEPHONE = #{telephone}
+		WHERE MID = #{mid}
+	</update>
 	
 </mapper>
