@@ -1,23 +1,22 @@
-/*==========================================
-   StudentDTO.java
-   - 데이터 전송 객체 자료형 클래스(DTO)
-   - 학생 데이터 저장 및 전송
-==========================================*/
+/*=================================
+  StudentDTO.java
+  - 데이터 저장 및 전송 전용 객체
+=================================*/
 
 package com.test.mybatis;
 
 public class StudentDTO
 {
-	// 주요 속성 구성 
-	private int sid;
-	private String name, tel;
+	// 주요 속성 구성
+	private String sid, name, tel;
+	private int sub;
 	
 	// getter / setter 구성
-	public int getSid()
+	public String getSid()
 	{
 		return sid;
 	}
-	public void setSid(int sid)
+	public void setSid(String sid)
 	{
 		this.sid = sid;
 	}
@@ -37,5 +36,15 @@ public class StudentDTO
 	{
 		this.tel = tel;
 	}
+	public int getSub()
+	{
+		return sub;
+	}
+	public void setSub(int sub)
+	{
+		this.sub = sub;
+	}
+
+	
 	
 }

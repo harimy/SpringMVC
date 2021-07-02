@@ -5,19 +5,4 @@
 
 <mapper namespace="com.test.mybatis.IGradeDAO">
 
-	<select id="list" resultType="com.test.mybatis.GradeDTO">
-		SELECT SID, NAME, SUB1, SUB2, SUB3, TOT, AVG, CH
-		FROM GRADEVIEW
-	</select>
-	
-	<select id="count" resultType="java.lang.Integer">
-		SELECT COUNT(*) AS COUNT
-		FROM TBL_GRADE
-	</select>
-
-	<insert id="add">
-		INSERT INTO TBL_GRADE(SID, SUB1, SUB2, SUB3)
-		VALUES(, #{}, #{}, #{})		
-	</insert>
-	
 </mapper>

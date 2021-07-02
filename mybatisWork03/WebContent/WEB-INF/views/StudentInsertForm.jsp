@@ -1,81 +1,63 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%
-   	request.setCharacterEncoding("UTF-8");
-   	String cp = request.getContextPath();
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MemberList.jsp</title>
+<title>StudentInsertForm.jsp</title>
 <!-- 부트스트랩 css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 제이쿼리 script -->
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery.min.js"></script>
 
 <!-- 부트스트랩 script -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-	
-	$(function()
-	{
-		$(".btnDelete").click(function()
-		{
-			if (confirm("현재 선택한 데이터를 정말 삭제하시겠습니까?"))
-			{
-				$(location).attr("href", "studentdelete.action?sid=" + $(this).val());
-			}
-			
-		});
-	});
-
-</script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
 </head>
 <body>
 
-<div>
-	<h1>회원 정보</h1>
-	<hr />
-</div>
 
 <div class="container">
 	<div class="panel-group">
 		<div class="panel-default">
-			
 			<div class="panel-heading" id="title">
-				학생 정보 입력
+			학생 정보 입력
 			</div>
 			
 			<div class="panel-body">
-				<form action="studentinsert.action" role="form" method="post">
+				<form role="form" action="studentinsert.action" method="post">
 					<div class="form-group">
+						<!-- studentDTO 의 속성값과 동일하게 name 구성 -->
 						<label for="name">
-							NAME : 
+						NAME : 
 						</label>
-						<input type="text" name="name" class="form-control" id="name" />
+						<input type="text" class="form-control" id="name" name="name"/>
 					</div>
-					
+				
 					<div class="form-group">
 						<label for="tel">
-							TELEPHONE : 
+						TEL :
 						</label>
-						<input type="text" name="tel" class="form-control" id="tel" />
+						<input type="tel" class="form-control" id="tel" name="tel"/>
 					</div>
-					
+				
 					<button type="submit" class="btn btn-success btn-sm">SUBMIT</button>
-					<button type="reset" class="btn btn-success btn-sm btnCalcel">CANCEL</button>
-	
+					<button type="reset" class="btn btn-success btn-sm btbCancel">CANCEL</button>
+				
 				</form>
 			</div>
-			
-		</div>
-	</div><!-- close .panel-default -->
-	
+		</div><!-- close . panel-default -->
+		
+	</div>
 </div>
 
 </body>
